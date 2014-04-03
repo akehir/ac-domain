@@ -4,7 +4,7 @@
  * change this to the email you want the form to send to
  * ===================================================== */
 $email_to = "info@akehir.com";
-$email_subject = "Contact Form submitted";
+$email_subject = "contact@akehir.com";
 
 if(isset($_POST['email']))
 {
