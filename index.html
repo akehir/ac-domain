@@ -45,6 +45,7 @@
         <div class="logo">
           <a href="#intro" class="link-scroll"><img src="assets/images/akehircom_white_255x255.png" alt="akehir.com"></a>
         </div><!-- .logo -->
+		<!-- Logo is not displayed in mobile layout. -->
 
         <!-- Menu Icon for smaller viewports -->
         <div id="mobile-menu-icon" class="visible-xs" onClick="toggle_main_menu();"><span class="glyphicon glyphicon-th"></span></div>
@@ -207,24 +208,7 @@
                     </div><!-- #modal-content-6 -->
                   </article>
 
-                  <article class="feature-col col-md-4">
-                    <a href="" onclick="populate_and_open_modal(event, 'modal-content-print');" class="thumbnail linked">
-                      <div class="image-container">
-                        <img data-img-src="assets/images/portfolio/flyer_Page_1_thumb_1.jpg" class="lazy item-thumbnail" alt="A picture of a flyer.">
-                      </div>
-                      <div class="caption">
-                        <h5>Print</h5>
-                        <p>Here you can see the print products I can deliver.</p>
-                      </div><!-- .caption -->
-                    </a><!-- .thumbnail -->
-
-                    <div class="content-to-populate-in-modal" id="modal-content-print">
-                      <img data-img-src="assets/images/portfolio/flyer_Page_1_thumb_2.jpg" class="lazy full-width" alt="A picture of a flyer.">
-                      <h1>Print</h1>
-                      <p>A sample flyer, created in 2013 for the discharge of a professor for cultural anthropology at the University of Zurich.</p>
-                      <p><a href="files/print/flyer.pdf" target="_blank" class="btn btn-outline-inverse btn-sm">view flyer</a></p>
-                    </div><!-- #modal-content-7 -->
-                  </article>
+             
 
                   <article class="feature-col col-md-4">
                     <a href="" onclick="populate_and_open_modal(event, 'modal-content-web');" class="thumbnail linked">
@@ -249,7 +233,25 @@
 						<h2>Freelance Webdesign, Zimmer-mit-Aussicht.ch</h2>
 						<p>Support and maintenance of the website on a small budget, after initial development has been completed by another programmer.</p>
                     </div><!-- #modal-content-8 -->
+                  </article>
+				  
+				  <article class="feature-col col-md-4">
+                    <a href="" onclick="populate_and_open_modal(event, 'modal-content-print');" class="thumbnail linked">
+                      <div class="image-container">
+                        <img data-img-src="assets/images/portfolio/flyer_Page_1_thumb_1.jpg" class="lazy item-thumbnail" alt="A picture of a flyer.">
+                      </div>
+                      <div class="caption">
+                        <h5>Print</h5>
+                        <p>Here you can see the print products delivered by me in a blast from the past.</p>
+                      </div><!-- .caption -->
+                    </a><!-- .thumbnail -->
 
+                    <div class="content-to-populate-in-modal" id="modal-content-print">
+                      <img data-img-src="assets/images/portfolio/flyer_Page_1_thumb_2.jpg" class="lazy full-width" alt="A picture of a flyer.">
+                      <h1>Print</h1>
+                      <p>A sample flyer, created in 2013 for the discharge of a professor for cultural anthropology at the University of Zurich.</p>
+                      <p><a href="files/print/flyer.pdf" target="_blank" class="btn btn-outline-inverse btn-sm">view flyer</a></p>
+                    </div><!-- #modal-content-7 -->
                   </article>
 
                 </section><!-- end: .feature-columns -->
@@ -286,6 +288,33 @@
 								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-VirtualCultures');">Raphael Ochsenbein</a></td>
 								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-VirtualCultures');">Self-Publication, Online</a></td>
 							</tr>
+							<tr>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-shamanism');">2012</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">The Eight Elements of Shamanism and the Ewenks</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">Raphael Ochsenbein</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">Self-Publication, Online</a></td>
+							</tr>
+							<tr>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-reprotech');">2012</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">Der Prozess der Normalisierung neuer Technologie am Beispiel von assistierender Reproduktionstechnologie</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">Raphael Ochsenbein</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">Self-Publication, Online</a></td>
+							</tr>
+							<tr>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-nationbuilding');">2010</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">Nation-Building in Afghanistan</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">Iva Jelezarova, Raphael Ochsenbein</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">Self-Publication, Online</a></td>
+							</tr>
+							
+							<!-- template for entries in publication table.
+							<tr>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">201</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">TITLE</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">Raphael Ochsenbein</a></td>
+								<td><a href="" onclick="populate_and_open_modal(event, 'modal-content-pub-');">Self-Publication, Online</a></td>
+							</tr>
+							-->
 						</tbody>
 					</table>
 				</div>
@@ -296,7 +325,41 @@
 				    <h2>Abstract</h2>
 				    <p>This text describes the current state of the research on virtual cultures. It is argued that a lot of the research does not account for the role game designers play and that future studies should try to remedy that in order to gain a deeper understanding of virtual worlds.</p>
 				    <p><a href="files/publications/Ochsenbein_Raphael_Studying_Virtual_Cultures.pdf" target="_blank" class="btn btn-outline-inverse btn-sm">Download PDF</a></p>
-                 </div><!-- #modal-content-7 -->
+                 </div><!-- #modal-content-pub-VirtualCultures -->
+				 
+				 <div class="content-to-populate-in-modal" id="modal-content-pub-shamanism">
+					<h1></h1>
+				    <img data-img-src="assets/images/publications/Ochsenbein_Raphael_ElementsOfShamanism.jpg" class="lazy full-width" alt="Title image for the publication.">
+				    <h2>Abstract</h2>
+				    <p>An analysis of the eight elements defining shamanism and their modern representations with the historical example of the tribe of the Ewenks.<!--TODO!--></p>
+				    <p><a href="files/publications/Ochsenbein_Raphael_ElementsOfShamanism.pdf" target="_blank" class="btn btn-outline-inverse btn-sm">Download PDF</a></p>
+                 </div>
+				 
+				 <div class="content-to-populate-in-modal" id="modal-content-pub-reprotech">
+					<h1>Der Prozess der Normalisierung neuer Technologie am Beispiel von assistierender Reproduktionstechnologie</h1>
+				    <img data-img-src="assets/images/publications/Ochsenbein_Raphael_ART.jpg" class="lazy full-width" alt="Title image for the publication.">
+				    <h2>Abstract</h2>
+				    <p><!--TODO!--></p>
+				    <p><a href="files/publications/Ochsenbein_Raphael_ART.pdf" target="_blank" class="btn btn-outline-inverse btn-sm">Download PDF</a></p>
+                 </div><!-- #modal-content-pub-reprotech -->
+				 
+				 <div class="content-to-populate-in-modal" id="modal-content-pub-nationbuilding">
+					<h1>Nation-Building in Afghanistan</h1>
+				    <h2>Abstract</h2>
+				    <p>Short analysis and literature on the nation-building efforts of the NATO in Afghanistan.</p>
+				    <p><a href="files/publications/Ochsenbein_Jelezarova_NationBuilding.pdf" target="_blank" class="btn btn-outline-inverse btn-sm">Download PDF</a></p>
+				 </div><!-- #modal-content-pub-nationbuilding -->
+				 
+				 
+				 
+				 <!-- template for publications content.
+				 <div class="content-to-populate-in-modal" id="modal-content-pub-">
+					<h1></h1>
+				    <img data-img-src="assets/images/publications/.jpg" class="lazy full-width" alt="Title image for the publication.">
+				    <h2>Abstract</h2>
+				    <p></p>
+				    <p><a href="files/publications/.pdf" target="_blank" class="btn btn-outline-inverse btn-sm">Download PDF</a></p>
+                 </div>--><!-- #modal-content-pub- -->
 
             </div><!-- .col-sm-10 -->
           </div><!-- .content-wrapper -->
