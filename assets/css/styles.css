@@ -233,6 +233,11 @@ p {
 			display: none;
 		}
 	}
+	@media(max-width: 992px){
+		#left-sidebar .logo {
+			display: none;
+		}
+	}
 
 /* -------------- MAIN MENU ----------------- */
 
