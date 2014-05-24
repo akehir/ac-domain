@@ -217,6 +217,7 @@ p {
         #left-sidebar .logo {
             padding:28px 0 20px 0;
             background: none;
+			display: 
         }
     }
     @media (min-width: 992px) {
@@ -1477,38 +1478,6 @@ h6 {
     }
     @media (min-width: 1200px) {  
     }
-
-/* ====================================================
-   OWL CAROUSEL
-   ==================================================== */
-
-.owl-carousel .owl-item {
-    position: relative;
-}
-
-.owl-carousel .owl-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.owl-carousel .owl-item .caption {
-    display: block;
-    position: absolute;
-    bottom:0;
-    left:0;
-    z-index: 5;
-    width: 100%;
-    margin:0;
-    padding: 9px 3% 15px;
-    background: #000;
-    background: rgba(0,0,0,0.3);
-    color: #fff;
-    font-size: 0.9em;
-    line-height: 1.1;
-    text-align: center;
-    font-family: 'open_sanslight', sans-serif;
-}
 
 /* ====================================================
    IMAGES

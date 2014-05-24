@@ -14,10 +14,6 @@
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-    <!-- owl carousel css -->
-    <link href="assets/js/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="assets/js/owl-carousel/owl.theme.css" rel="stylesheet">
-    <link href="assets/js/owl-carousel/owl.transitions.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/styles.css" rel="stylesheet">
@@ -690,9 +686,6 @@
 
     <!-- detect mobile browsers -->
     <script src="assets/js/detectmobilebrowser.js"></script>
-
-    <!-- owl carousel js -->
-    <script src="assets/js/owl-carousel/owl.carousel.min.js"></script>
 
     <!-- Custom functions for this theme -->
     <script src="assets/js/functions.min.js"></script>
