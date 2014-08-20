@@ -3,7 +3,8 @@
 /* =====================================================
  * change this to the email you want the form to send to
  * ===================================================== */
-$email_to = "info@akehir.com";
+$email_to = "info@akehir.com"; // the email address to which the form sends submissions
+$email_from = "do-not-reply@akehir.com"; // the email address used as "From" when submissions are sent to the $email_to above (important that it has the same domain as the domain of your site - unless you have configured your server's mail settings)
 $email_subject = "Contact Form on akehir.com";
 
 if(isset($_POST['email']))
@@ -68,10 +69,10 @@ if(isset($_POST['email']))
     $email_message .= "Message: ".clean_string($message)."\n";
 
     // create email headers
-    $headers = 'From: '.$email."\r\n".
+    $headers = 'From: '.$email_from."\r\n".
     'Reply-To: '.$email."\r\n" .
     'X-Mailer: PHP/' . phpversion();
-    if (@mail($email_to, $email_subject, $email_message, $headers))
+    if (mail($email_to, $email_subject, $email_message, $headers))
     {
         echo 'Form submitted successfully.';
     }

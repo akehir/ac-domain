@@ -48,6 +48,13 @@ p a:hover {
     border-color:rgba(255,255,255,1);
 }
 
+strong {
+    font-family: 'open_sansbold', sans-serif;
+}
+em {
+    font-family: 'open_sansitalic', sans-serif;
+}
+
 h1,
 h2,
 h3,
@@ -85,6 +92,135 @@ p {
             float: right !important;
         }
     }
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid #eee;
+    border-color:rgba(255,255,255,0.4);
+    background:rgba(0,0,0,0.4);
+}
+blockquote p {
+    margin:0.6em 0 !important;
+}
+ul, ol {
+    display:inline-block;
+    text-align:left;
+}
+ul ul, ul ol, ol ul, ol ol {
+    display:block;
+}
+dl {
+    margin-bottom:2em;
+}
+* + dl {
+    margin-top:2em;
+}
+dt {
+    font-family: 'open_sansbold', sans-serif;
+}
+
+/* -------------- Bootstrap Tables ----------------- */
+
+table {
+    text-align: left;
+}
+.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: transparent;
+    background-color: rgba(255,255,255,0.04);
+}
+.table-bordered, .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+    border-color: #313131;
+    border-color:rgba(255,255,255,0.1);
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border-top-color:#313131;
+    border-top-color:rgba(255,255,255,0.1);
+}
+.table>thead>tr>th {
+    border-bottom-color: #313131;
+    border-bottom-color:rgba(255,255,255,0.15);
+}
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+    background-color: transparent;
+    background-color: rgba(255,255,255,0.08);
+}
+.table >thead>tr>td.active, .table>tbody>tr>td.active, .table>tfoot>tr>td.active, .table>thead>tr>th.active, .table>tbody>tr>th.active, .table>tfoot>tr>th.active, .table>thead>tr.active>td, .table>tbody>tr.active>td, .table>tfoot>tr.active>td, .table>thead>tr.active>th, .table>tbody>tr.active>th, .table>tfoot>tr.active>th {
+    background-color: rgba(245,245,245,0.3);
+}
+.table>thead>tr>td.success, .table>tbody>tr>td.success, .table>tfoot>tr>td.success, .table>thead>tr>th.success, .table>tbody>tr>th.success, .table>tfoot>tr>th.success, .table>thead>tr.success>td, .table>tbody>tr.success>td, .table>tfoot>tr.success>td, .table>thead>tr.success>th, .table>tbody>tr.success>th, .table>tfoot>tr.success>th {
+    background-color: rgba(198,237,181,0.3);
+}
+.table>thead>tr>td.info, .table>tbody>tr>td.info, .table>tfoot>tr>td.info, .table>thead>tr>th.info, .table>tbody>tr>th.info, .table>tfoot>tr>th.info, .table>thead>tr.info>td, .table>tbody>tr.info>td, .table>tfoot>tr.info>td, .table>thead>tr.info>th, .table>tbody>tr.info>th, .table>tfoot>tr.info>th {
+    background-color: rgba(185,224,244,0.3);
+}
+.table>thead>tr>td.warning, .table>tbody>tr>td.warning, .table>tfoot>tr>td.warning, .table>thead>tr>th.warning, .table>tbody>tr>th.warning, .table>tfoot>tr>th.warning, .table>thead>tr.warning>td, .table>tbody>tr.warning>td, .table>tfoot>tr.warning>td, .table>thead>tr.warning>th, .table>tbody>tr.warning>th, .table>tfoot>tr.warning>th {
+    background-color: rgba(247,239,199,0.3);
+}
+.table>thead>tr>td.danger, .table>tbody>tr>td.danger, .table>tfoot>tr>td.danger, .table>thead>tr>th.danger, .table>tbody>tr>th.danger, .table>tfoot>tr>th.danger, .table>thead>tr.danger>td, .table>tbody>tr.danger>td, .table>tfoot>tr.danger>td, .table>thead>tr.danger>th, .table>tbody>tr.danger>th, .table>tfoot>tr.danger>th {
+    background-color: rgba(240,158,158,0.3);
+}
+
+/* -------------- Bootstrap Contectual Backgrounds ----------------- */
+.bg-primary {
+    background-color: rgba(66,139,202,0.3);
+}
+.bg-success {
+    background-color: rgba(198,237,181,0.3);
+}
+.bg-info {
+    background-color: rgba(185,224,244,0.3);
+}
+.bg-warning {
+    background-color: rgba(247,239,199,0.3);
+}
+.bg-danger {
+    background-color: rgba(240,158,158,0.3);
+}
+
+/* -------------- Bootstrap Navs ----------------- */
+.nav, ul.nav {
+    display:block;
+    border-bottom-color:rgba(255,255,255,0.15);
+}
+.nav>li>a:hover, .nav>li>a:focus {
+    background-color: #eee;
+    color: #fff;
+    background-color: rgba(238,238,238,0.2);
+    border-color: rgba(238,238,238,0.1);
+}
+.nav.nav-tabs>li>a:hover, .nav.nav-tabs>li>a:focus {
+    border-bottom-color:rgba(255,255,255,0.15) !important;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #000;
+    background-color: #fff;
+}
+.nav>li.disabled>a:hover, .nav>li.disabled>a:focus {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+/* -------------- Bootstrap Collapse ----------------- */
+.tab-content > .active {
+   text-align: left;
+   padding: 15px;
+} 
+.panel {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color:rgba(255,255,255,0.1);
+    background-color:rgba(255,255,255,0.15);
+}
+.panel>.panel-heading {
+    color: #333;
+    text-shadow:none;
+}
+.panel-title>a:hover {
+    color: #000;
+    text-decoration: none;
+}
 
 /* -------------- BUTTONS ----------------- */
 
@@ -704,7 +840,8 @@ h6 {
     float:left; 
     padding:10px 2%; 
 }
-#main-content .grid .icon.glyphicon {
+#main-content .grid .icon.glyphicon,
+#main-content .grid .icon.fa {
     text-align: center;
     font-size:2.8em;
     color:#fff;
@@ -729,7 +866,8 @@ h6 {
         #main-content .grid .icon { 
             padding:10px 0; 
         }  
-        #main-content .grid .icon.glyphicon {
+        #main-content .grid .icon.glyphicon,
+        #main-content .grid .icon.fa {
             font-size:2.9em; 
             padding:20px 0; 
         }      
@@ -739,7 +877,8 @@ h6 {
             width:26%;
             padding:10px 2%; 
         }
-        #main-content .grid .icon.glyphicon {
+        #main-content .grid .icon.glyphicon,
+        #main-content .grid .icon.fa {
             font-size:3.1em;  
             width:30%;
         }
@@ -1297,7 +1436,8 @@ h6 {
     height:auto;
 }
 
-#main-content .carousel .icon.glyphicon {
+#main-content .carousel .icon.glyphicon,
+#main-content .carousel .icon.fa {
     margin:0 auto 20px auto;
     font-size:2.9em;
     color:#fff;
@@ -1341,7 +1481,8 @@ h6 {
             margin:0px auto 10px auto;
             width:90px;
         } 
-        #main-content .carousel .icon.glyphicon {
+        #main-content .carousel .icon.glyphicon,
+        #main-content .carousel .icon.fa {
             margin:0px auto 20px auto;
             font-size:3.4em;
         } 
@@ -1375,7 +1516,8 @@ h6 {
             margin:0 auto 30px auto;
             width:110px;
         } 
-        #main-content .carousel .icon.glyphicon {
+        #main-content .carousel .icon.glyphicon,
+        #main-content .carousel .icon.fa {
             margin:0 auto 50px auto;
             font-size:4.2em;
         } 

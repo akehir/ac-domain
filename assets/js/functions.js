@@ -200,7 +200,7 @@ function initialise_general_links_click_events()
                         update_active_sections_on_scroll();                 
                     });                  
 
-                    event.preventDefault();                     
+                    event.preventDefault ? event.preventDefault() : event.returnValue = false;                     
                 }
 
                 // if element with that ID doesn't exist
@@ -221,7 +221,7 @@ function initialise_general_links_click_events()
 
         // empty link
         else {
-            event.preventDefault(); 
+            event.preventDefault ? event.preventDefault() : event.returnValue = false; 
             return false;   
         } 
     });
@@ -263,7 +263,7 @@ function initialise_main_menu_click_events()
 
             scroll_to_section(clicked_link_href, clicked_menu_item_id, change_background);
 
-            event.preventDefault(); // stop link from default action 
+            event.preventDefault ? event.preventDefault() : event.returnValue = false; // stop link from default action 
         }
 
         // if menu item does NOT have "scroll" class, default link action will apply
@@ -272,7 +272,7 @@ function initialise_main_menu_click_events()
             // if fake link ("#") or empty, do nothing
             if (clicked_link_href === undefined || clicked_link_href == "" || clicked_link_href == "#") 
             { 
-                event.preventDefault(); 
+                event.preventDefault ? event.preventDefault() : event.returnValue = false; 
                 return false; 
             }
         }
@@ -669,8 +669,9 @@ function set_equal_height_to_all_carousel_slides_on_small_displays()
  *
  * @param event - NEEDED to stop default link actions (since link will be used to open popup)
  * @param modal_content_id - the id of the container with the content which will be populated in the modal body
+ * @param section_in_modal - selector - optional - if set, when modal is shown, the popup will scroll to this section
  */
-function populate_and_open_modal(event, modal_content_id)
+function populate_and_open_modal(event, modal_content_id, section_in_modal)
 {
     var modal = $("#common-modal.modal");
     var modal_body = modal.find(".modal-body");
@@ -694,6 +695,14 @@ function populate_and_open_modal(event, modal_content_id)
         // when modal is shown, position it in the middle of the page 
         modal.on('shown.bs.modal', function (e) {
             position_modal_at_centre();
+            // if set, scroll to a given section inside the popup
+            if (section_in_modal !== undefined && $("#common-modal.modal").find(section_in_modal).length > 0)
+            {
+                var section_vertical_offset = $("#common-modal.modal").find(section_in_modal).offset().top;
+                $('#common-modal.modal').stop().animate({
+                    scrollTop: section_vertical_offset
+                }, 800,'easeInOutCubic');   
+            }
         });
 
         // when modal starts to close, fade in main content 
@@ -709,7 +718,7 @@ function populate_and_open_modal(event, modal_content_id)
     }
     // end: if modal and content container exists
 
-    event.preventDefault(); 
+    event.preventDefault ? event.preventDefault() : event.returnValue = false; 
     return false;     
 }
 
@@ -895,7 +904,7 @@ function validate_and_submit_forms(form_object)
         // -------------- on Submit of form --------------
         this_form.submit(function(event)
         {
-            event.preventDefault(); // stop default action (will be handled via AJAX below)
+            event.preventDefault ? event.preventDefault() : event.returnValue = false; // stop default action (will be handled via AJAX below)
 
             // show form loader
             $(this).find(".form-loader").fadeIn("fast");
@@ -961,7 +970,7 @@ function validate_and_submit_forms(form_object)
                     // show message
                     this_form.find(".form-general-error-container").html(message_field_html).fadeIn("fast", function(){
                         // if submission was successful, hide message after some time
-                        $(this).delay(10000).fadeOut("fast", function(){ $(this).remove(); });
+                        $(this).delay(10000).fadeOut("fast", function(){ $(this).html(""); });
                     });
 
                     // if form submitted successfully, empty fields
