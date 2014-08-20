@@ -109,7 +109,7 @@ function initialise_document_ready_functions()
     { 
 
         // Update Active Sections on Scroll (do not use function when menu link was clicked - as this already has a link to the scroll function) -- (do not fire function on mobile viewports)
-        if (!$("#main-content").hasClass("same_page_link_in_action") && !jQuery.browser.mobile )
+        if (!$("#main-content").hasClass("same_page_link_in_action"))
         {
             update_active_sections_on_scroll(section_wrappers, amount_of_pixels_as_buffer_between_sections);
         }
