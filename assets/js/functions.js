@@ -670,12 +670,18 @@ function set_equal_height_to_all_carousel_slides_on_small_displays()
  * @param event - NEEDED to stop default link actions (since link will be used to open popup)
  * @param modal_content_id - the id of the container with the content which will be populated in the modal body
  * @param section_in_modal - selector - optional - if set, when modal is shown, the popup will scroll to this section
+ * @param add_class_to_modal - optional - add a class to the modal container (#common-modal)
  */
-function populate_and_open_modal(event, modal_content_id, section_in_modal)
+function populate_and_open_modal(event, modal_content_id, section_in_modal, add_class_to_modal)
 {
     var modal = $("#common-modal.modal");
     var modal_body = modal.find(".modal-body");
     var modal_content_container_to_populate = $("#"+modal_content_id);
+
+    var add_class = "";
+    if (add_class_to_modal !== undefined && add_class_to_modal != "") {
+        add_class = add_class_to_modal;
+    }
 
     // if modal and content container exists
     if (modal_body.length > 0 && modal_content_container_to_populate.length > 0)
@@ -692,11 +698,14 @@ function populate_and_open_modal(event, modal_content_id, section_in_modal)
         // open modal (popup)
         modal.modal(); 
 
+        // add class to modal
+        if (add_class != "") modal.addClass(add_class);
+
         // when modal is shown, position it in the middle of the page 
         modal.on('shown.bs.modal', function (e) {
             position_modal_at_centre();
             // if set, scroll to a given section inside the popup
-            if (section_in_modal !== undefined && $("#common-modal.modal").find(section_in_modal).length > 0)
+            if (section_in_modal !== undefined && section_in_modal != "" && $("#common-modal.modal").find(section_in_modal).length > 0)
             {
                 var section_vertical_offset = $("#common-modal.modal").find(section_in_modal).offset().top;
                 $('#common-modal.modal').stop().animate({
@@ -713,6 +722,8 @@ function populate_and_open_modal(event, modal_content_id, section_in_modal)
         // when modal is hidden, empty modal body 
         modal.on('hidden.bs.modal', function (e) {
             modal_body.empty(); // empty modal body
+
+            if (add_class != "") modal.removeClass(add_class); // remove class
         });       
 
     }
@@ -812,7 +823,7 @@ function scroll_to_top()
  * @param vertical_layout_positioning_check - if set to true, fire sections_content_vertical_position() function correct vertical positioning of sections
  */
 function load_images(images_objects_selector_class, remove_selector_class_after_image_loaded, vertical_layout_positioning_check)
-{
+{   
     // if images exist
     var images_objects = $("."+images_objects_selector_class);
     if (images_objects.length > 0)
@@ -832,10 +843,10 @@ function load_images(images_objects_selector_class, remove_selector_class_after_
         });
 
         // load images
-        var new_image_object = new Image();
         var count_images_to_load = images.length;
         for(i=0; i<count_images_to_load; i++) 
         {
+            var new_image_object = new Image();
             new_image_object.src = images[i]["img_src"];
             images[i]["img_object"].attr("src", images[i]["img_src"]);
 
@@ -844,11 +855,14 @@ function load_images(images_objects_selector_class, remove_selector_class_after_
             {
                 images[i]["img_object"].removeClass(images_objects_selector_class);
             }
-
-            // if enabled, correct vertical positioning of sections (after last image) (only when not viewing on mobile viewport)
+            
+            // if enabled, correct vertical positioning of sections (after last image is completely loaded) (only when not viewing on mobile viewport)
             if (vertical_layout_positioning_check == true && i == count_images_to_load-1 && (!jQuery.browser.mobile || viewport().width > window.xs_screen_max))
             {
-                sections_content_vertical_position();
+                new_image_object.onload = function()
+                {
+                    sections_content_vertical_position();
+                }
             }
         }
         // end: load images
@@ -900,6 +914,12 @@ function validate_and_submit_forms(form_object)
             });
         });
         // -------------- end: onChange of each form field --------------
+
+        // -------------- reload captcha --------------
+        this_form.find("#form-captcha-refresh").click(function() {
+            this_form.find("#form-captcha-img").replaceWith('<img id="form-captcha-img" src="assets/php/form_captcha/captcha_img.php">');
+            this_form.find("#form-captcha").val("");
+        });
 
         // -------------- on Submit of form --------------
         this_form.submit(function(event)
@@ -961,17 +981,46 @@ function validate_and_submit_forms(form_object)
                     // hide loader
                     this_form.find(".form-loader").fadeOut("fast");
 
-                    var submission_successful = (data == "Form submitted successfully.") ? true : false;
+                    var submission_successful = (data == "success") ? true : false;
+                    var captcha_success = (data == "captcha") ? false : true;
+
+                    var message = "";
+                    switch(data) {
+                        case "success":
+                            message = "Form submitted successfully.";
+                            break;
+                        case "captcha":
+                            message = "Incorrect text entered. (Case-sensitive)";
+                            break;
+                        case "incomplete":
+                            message = "Please fill in all required fields.";
+                            break;
+                        case "error":
+                            message = "An error occured. Please try again later.";
+                            break;
+                    }
 
                     // prepare message to show after form processed
                     var message_field_html = '<div class="alert ';
                     message_field_html += (submission_successful == true) ? 'success' : 'error';
-                    message_field_html += '">'+data+'</div>';
-                    // show message
-                    this_form.find(".form-general-error-container").html(message_field_html).fadeIn("fast", function(){
-                        // if submission was successful, hide message after some time
-                        $(this).delay(10000).fadeOut("fast", function(){ $(this).html(""); });
-                    });
+                    message_field_html += '">'+message+'</div>';
+
+                    // incorrect captcha
+                    if (!captcha_success) {
+                        this_form.find("#form-captcha").parent(".form-group").append(message_field_html);
+                        this_form.find("#form-captcha").siblings(".alert").fadeIn("fast");
+                    }
+                    // general message
+                    else {
+                        this_form.find(".form-general-error-container").html(message_field_html).fadeIn("fast", function(){
+                            // if submission was successful, hide message after some time
+                            $(this).delay(10000).fadeOut("fast", function(){ $(this).html(""); });
+                        });
+                    }
+
+                    // refresh captcha
+                    this_form.find("#form-captcha-img").replaceWith('<img id="form-captcha-img" src="assets/php/form_captcha/captcha_img.php">');
+                    this_form.find("#form-captcha").val("");
 
                     // if form submitted successfully, empty fields
                     if (submission_successful == true) this_form.find(".form-control").val("");

@@ -1,11 +1,20 @@
 <?php
 
 /* =====================================================
- * change this to the email you want the form to send to
+ * change $email_to and $email_form
  * ===================================================== */
 $email_to = "info@akehir.com"; // the email address to which the form sends submissions
 $email_from = "do-not-reply@akehir.com"; // the email address used as "From" when submissions are sent to the $email_to above (important that it has the same domain as the domain of your site - unless you have configured your server's mail settings)
 $email_subject = "Contact Form on akehir.com";
+
+// check CAPTCHA code first
+session_start();
+if (!isset($_POST["captcha"]) || 
+    $_SESSION["captcha_code"] != $_POST["captcha"])
+{
+    echo 'captcha';
+    die();
+}
 
 if(isset($_POST['email']))
 {
@@ -21,7 +30,7 @@ if(isset($_POST['email']))
         !isset($_POST['email']) ||
         !isset($_POST['message']))
     {
-        return_error('Please fill in all required fields.');
+        return_error('incomplete');
     }
 
     // form field values
@@ -74,17 +83,17 @@ if(isset($_POST['email']))
     'X-Mailer: PHP/' . phpversion();
     if (mail($email_to, $email_subject, $email_message, $headers))
     {
-        echo 'Form submitted successfully.';
+        echo 'success';
     }
     else 
     {
-        echo 'An error occured. Please try again later.';
+        echo 'error';
         die();        
     }
 }
 else
 {
-    echo 'Please fill in all required fields.';
+    echo 'incomplete';
     die();
 }
 ?>

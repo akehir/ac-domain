@@ -10,6 +10,10 @@
 
     <title>akehir.com | Cybershaman by the Graces of Electron.</title>
 
+	<!--  favicon -->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
     <!-- Bootstrap core CSS -->
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
@@ -22,13 +26,14 @@
     <link href="assets/js/wow/animate.css" rel="stylesheet">
     <!-- font awesome -->
     <link href="assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- lightbox -->
+    <link href="assets/js/lightbox/css/lightbox.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- styles for this template -->
     <link href="assets/css/styles.css" rel="stylesheet">
-	
-	<!-- Custom favicon -->
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- place your extra custom styles in this file -->
+    <link href="assets/css/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -646,7 +651,12 @@
                       </div>
                       <div class="form-group">
                         <input type="tel" class="text-field form-control validate-field phone" data-validation-type="phone" id="form-contact-number" placeholder="Contact Number" name="contact_number">
-                      </div>                 
+                      </div>    
+                      <div class="form-group text-right">
+                        <img id="form-captcha-img" src="assets/php/form_captcha/captcha_img.php">
+                        <input type="text" class="text-field form-control validate-field required" data-validation-type="captcha" id="form-captcha" placeholder="Enter text" name="captcha">
+                        <span id="form-captcha-refresh" class="fa fa-refresh" title="Reload"></span>
+                      </div>                                   
                     </div><!-- end: form left col -->
 
                     <!-- form right col -->
@@ -735,7 +745,7 @@
     <script src="assets/js/wow/wow.min.js"></script>
 
     <!-- Custom functions for this theme -->
-    <script src="assets/js/functions.min.js"></script>
+    <script src="assets/js/functions.js"></script>
     <script src="assets/js/initialise-functions.js"></script>
 
     <!-- IE9 form fields placeholder fix -->

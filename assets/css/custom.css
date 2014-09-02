@@ -1,0 +1,60 @@
+/* It is recommended to place all your extra/additional CSS rules here */
+
+/* Do not display logo on mobile devices. */
+	@media(max-width: 768px){
+		#left-sidebar .logo {
+			display: none;
+		}
+	}
+	@media(max-width: 992px){
+		#left-sidebar .logo {
+			display: none;
+		}
+	}
+
+
+/* Using semibold font, instead of regular font style. */
+body {
+    font-family: 'open_sanssemibold', sans-serif;
+   	font-weight: bold;
+}
+
+p a {
+    font-family: 'open_sanssemibold', sans-serif;
+}
+
+.btn {
+    font-family: 'open_sanssemibold', sans-serif;
+}
+
+#left-sidebar #main-menu {
+    font-family: 'open_sanssemibold', sans-serif;
+}
+
+#left-sidebar #main-menu > li.menu-item > a,
+#left-sidebar #main-menu > li.menu-item > span {
+    font-weight: bold;
+}
+
+#left-sidebar #main-menu > li.menu-item.active > * {
+    font-weight: bolder;
+}
+
+#main-content {
+    font-family: 'open_sanssemibold', sans-serif;
+}
+
+#main-content .grid .text-content {
+	font-weight: bold;
+}
+@media (min-width: 992px) {
+        #main-content .grid .text-content {
+			font-weight: bold;
+        }         
+    }
+
+
+#main-content .projects-grid > li > .item-content .overlay .title,
+#main-content .projects-grid .grid-item .item-content .overlay .title {
+    font-family: 'open_sanssemibold', sans-serif;
+}

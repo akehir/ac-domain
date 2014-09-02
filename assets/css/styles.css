@@ -10,13 +10,12 @@ html {
 }
 
 body {
-    font-family: 'open_sanssemibold', sans-serif;
+    font-family: 'open_sanslight', sans-serif;
     color: #fff;
     background: #000;
     width:100%;
     height:100%;
     font-size:18px;
-	font-weight: bold;
 }
 
 a,
@@ -41,7 +40,7 @@ a:hover {
 p a {
     padding-bottom:1px;
     border-bottom:1px dotted rgba(255,255,255,0.4);
-    font-family: 'open_sanssemibold', sans-serif;
+    font-family: 'open_sansregular', sans-serif;
 }
 p a:hover {
     border-color:#fff;
@@ -228,7 +227,7 @@ table {
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
     border-radius: 0;
-    font-family: 'open_sanssemibold', sans-serif;
+    font-family: 'open_sanslight', sans-serif;
 }
 
 .btn-outline-inverse {
@@ -363,16 +362,6 @@ table {
     @media (min-width: 1200px) {
 
     }
-	@media(max-width: 768px){
-		#left-sidebar .logo {
-			display: none;
-		}
-	}
-	@media(max-width: 992px){
-		#left-sidebar .logo {
-			display: none;
-		}
-	}
 
 /* -------------- MAIN MENU ----------------- */
 
@@ -413,11 +402,12 @@ table {
     list-style: none;
     margin:0;
     padding:0;
-    font-family: 'open_sanssemibold', sans-serif;
+    font-family: 'open_sanslight', sans-serif;
     font-size:0.86em;
     line-height:1.05;
     text-transform: lowercase;
     background: rgba(0,0,0,0.1);
+    width:100%;
 }
 
 #left-sidebar #main-menu > li.menu-item {
@@ -434,7 +424,7 @@ table {
     color:#fff;
     text-decoration: none;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 #left-sidebar #main-menu > li.menu-item > a:hover {
@@ -443,7 +433,7 @@ table {
 
 #left-sidebar #main-menu > li.menu-item.active > * {
     font-family: 'open_sansbold', sans-serif;
-    font-weight: bolder;
+    font-weight: bold;
     background:rgba(0,0,0,0.15);
 }
 
@@ -587,7 +577,7 @@ table {
     margin:20px 5%;
     overflow: visible;
     min-height:1px;
-    font-family: 'open_sanssemibold', sans-serif;
+    font-family: 'open_sanslight', sans-serif;
 }
 
     @media (min-width: 768px) {
@@ -852,7 +842,6 @@ h6 {
 #main-content .grid .text-content {
     display:block;
     padding-left:25%;
-	font-weight: bold;
 }
 
     @media (min-width: 768px) {
@@ -885,7 +874,6 @@ h6 {
 
         #main-content .grid .text-content {
             padding-left:35%;
-			font-weight: bold;
         }         
     }
     @media (min-width: 1200px) {
@@ -987,7 +975,7 @@ h6 {
     right:12%;
     text-align: right;
     position: absolute;
-    font-family: 'open_sanssemibold', sans-serif;
+    font-family: 'open_sanslight', sans-serif;
     font-weight: bold;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
@@ -1175,6 +1163,10 @@ h6 {
     padding:0;
 }
 
+#main-content .form-style .form-group {
+    position:relative;
+}
+
 #main-content .form-style input.text-field,
 #main-content .form-style textarea {
     background:rgba(0,0,0,0.15);
@@ -1240,7 +1232,7 @@ h6 {
 
 #main-content .contact-details {
     font-size: 0.9em;
-    font-family: 'open_sans', sans-serif;
+    font-family: 'open_sansregular', sans-serif;
 }
 
     @media (min-width: 768px) {
@@ -1304,6 +1296,49 @@ h6 {
 *:focus:-ms-input-placeholder {
     color: #444444 !important;
 }  
+
+#main-content .form-style #form-captcha {
+    height:35px;
+    width:45%;
+    display:inline-block;
+    font-size:0.8em;
+}
+    @media (min-width: 768px) {
+        #main-content .form-style #form-captcha {
+            height:35px;
+        }       
+    }
+    @media (min-width: 992px) {
+        #main-content .form-style #form-captcha {
+            height:35px;
+        }
+    }
+
+#main-content .form-style #form-captcha-img {
+    width:45% !important;
+    height:auto !important;
+}
+
+#main-content .form-style #form-captcha-refresh {
+    position: absolute;
+    top:1px;
+    left:0;
+    z-index: 10;
+    width:20px;
+    height:20px;
+    display:block;
+    cursor:pointer;
+    font-size:14px;
+    text-align: right;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+}
+#main-content .form-style #form-captcha-refresh:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
 
 /* -------------- GENERAL CAROUSEL ----------------- */
 #main-content .section-wrapper.modified-height .carousel {
@@ -1609,12 +1644,19 @@ h6 {
             width: 800px;
             margin: 40px auto;
         } 
+        .modal.full-size .modal-dialog {
+            width: 90%;
+            margin: 40px auto;
+        }         
         .modal .close {
             top:-35px;
             right:-35px;
         }                
         .modal .modal-content .modal-body {
             padding:55px 90px;
+        }
+        .modal.full-size .modal-content .modal-body {
+            padding:30px 60px;
         }                   
     }
     @media (min-width: 1200px) {  
@@ -1650,6 +1692,63 @@ h6 {
     line-height: 1.1;
     text-align: center;
     font-family: 'open_sanslight', sans-serif;
+}
+
+.owl-carousel.hide-bullets .owl-pagination {
+    display:none !important;
+}
+
+/* -------------- ALT IMAGE GALLERY ----------------- */
+.popup-alt-image-gallery .item {
+    position:relative;
+    padding:0 10px;
+}
+
+.popup-alt-image-gallery .item > a {
+    display:block;
+    position:relative;
+}
+
+.popup-alt-image-gallery .item > a:after {
+    content:"";
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background:url(../images/theme_images/more-plus-icon.png) no-repeat center center;
+    background-color: rgba(0,0,0,0.45);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.popup-alt-image-gallery .item > a:hover:after {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.popup-alt-image-gallery .owl-controls .owl-buttons > div {
+    color: #fff;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius:0;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.popup-alt-image-gallery .owl-controls .owl-buttons > div:hover {
+    color:#000;
+    background:#fff;
+}
+
+.lb-outerContainer, .lightbox .lb-image {
+    background: transparent;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;    
 }
 
 /* ====================================================
